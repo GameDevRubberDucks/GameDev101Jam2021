@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="Assets\Studio Assets\Scripts\Light_VolumeController.cs" />
     <Compile Include="Assets\Studio Assets\Scripts\Light_SphereVolume.cs" />
+    <Compile Include="Assets\Studio Assets\Scripts\Light_BoxVolume.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Studio Assets\Prefabs\PLACEHOLDER.txt" />
