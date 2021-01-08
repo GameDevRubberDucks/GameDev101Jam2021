@@ -130,7 +130,13 @@ public class Light_VolumeController : MonoBehaviour
 
     public void UpdateConeInfo()
     {
-        // TODO
+        // Flatten the code data into arrays
+        FillConeInformation(out var coneTipsAndHeights, out var coneDirsAndRadii);
+
+        // Pass the information to the shader
+        m_clippingMat.SetInt("_NumConesActive", m_coneVolumes.Count);
+        m_clippingMat.SetVectorArray("_ConeTipsAndHeights", coneTipsAndHeights);
+        m_clippingMat.SetVectorArray("_ConeDirVecsAndBaseRadii", coneDirsAndRadii);
     }
 
 
@@ -165,6 +171,23 @@ public class Light_VolumeController : MonoBehaviour
 
             Vector3 boxMax = m_boxVolumes[i].Max;
             _maxes[i] = new Vector4(boxMax.x, boxMax.y, boxMax.z, 0.0f);
+        }
+    }
+
+    private void FillConeInformation(out Vector4[] _coneTipsAndHeights, out Vector4[] _coneDirsAndRadii)
+    {
+        // Init the arrays
+        _coneTipsAndHeights = new Vector4[MAX_CONE_VOLUMES];
+        _coneDirsAndRadii = new Vector4[MAX_CONE_VOLUMES];
+
+        // Loop through all of the cone volumes and fill the arrays
+        for (int i = 0; i < m_coneVolumes.Count; i++)
+        {
+            Vector3 coneTip = m_coneVolumes[i].Tip;
+            _coneTipsAndHeights[i] = new Vector4(coneTip.x, coneTip.y, coneTip.z, m_coneVolumes[i].Height);
+
+            Vector3 coneDirVec = m_coneVolumes[i].DirVec;
+            _coneDirsAndRadii[i] = new Vector4(coneDirVec.x, coneDirVec.y, coneDirVec.z, m_coneVolumes[i].BaseRadius);
         }
     }
 }

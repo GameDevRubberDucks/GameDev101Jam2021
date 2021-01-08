@@ -58,11 +58,6 @@ public class Light_ConeVolume : MonoBehaviour
         // Use the radius of the cone to dictate the size of the sphere as well
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(this.Tip + (this.DirVec * this.Height), this.BaseRadius);
-
-        // TEMP: Draw the point we are checking against!
-        Vector3 pointToCheck = new Vector3(0.0f, 10.0f, 0.0f);
-        Gizmos.color = CheckPoint(pointToCheck) ? Color.green : Color.red;
-        Gizmos.DrawWireSphere(pointToCheck, 1.0f);
     }
 
 
@@ -76,25 +71,5 @@ public class Light_ConeVolume : MonoBehaviour
         this.DirVec = -this.transform.up;
         this.Height = this.transform.lossyScale.y;
         this.BaseRadius = this.transform.localScale.x * 0.5f;
-    }
-
-    public bool CheckPoint(Vector3 _point)
-    {
-        // Determine how far along the cone's main axis the point is
-        Vector3 pointToTip = _point - this.Tip;
-        float distanceAlongAxis = Vector3.Dot(pointToTip, this.DirVec);
-
-        // If the point is above the tip of the cone or past the base, it is definitely not inside the cone
-        if (distanceAlongAxis < 0.0f || distanceAlongAxis > this.Height)
-            return false;
-
-        // Calculate the radius of the cone at the given distance
-        float coneRadius = (distanceAlongAxis / this.Height) * this.BaseRadius;
-
-        // Calculate the straight distance from the point to the axis
-        float distanceFromAxis = Vector3.Magnitude(pointToTip - (distanceAlongAxis * this.DirVec));
-
-        // If the straight distance from the cone's axis is within the radius of the cone at that point, then it is inside of it
-        return (distanceFromAxis <= coneRadius);
     }
 }

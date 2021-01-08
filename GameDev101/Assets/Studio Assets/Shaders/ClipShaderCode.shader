@@ -10,6 +10,7 @@ Shader "Custom/ClipShaderCode"
           
         [HideInInspector] _NumSpheresActive("Num Active Spheres", Int) = 3
         [HideInInspector] _NumBoxesActive("Num Active Boxes", Int) = 3
+        [HideInInspector] _NumConesActive("Num Active Cones", Int) = 3
     }
     
     SubShader
@@ -43,17 +44,23 @@ Shader "Custom/ClipShaderCode"
             float4 _MainTex_ST;
             float4 _Color;
             
-            // Sphere information
+            // Sphere Information
             #define MAX_SPHERES 10
             int _NumSpheresActive; // The number of light spheres actually in use - this does not have to match the maximum number, but it cannot really exceed it
             float4 _SphereCenters[MAX_SPHERES]; // The x,y,z are valid. The w values are just 0's
             float _SphereRadii[MAX_SPHERES];
 
-            // Box information
+            // Box Information
             # define MAX_BOXES 10
-            int _NumBoxesActive; // The number of light boxes actually in use - this does not have to match maximum number, but it cannot really exceed it
+            int _NumBoxesActive; // The number of light boxes actually in use - this does not have to match the maximum number, but it cannot really exceed it
             float4 _BoxMins[MAX_BOXES]; // The x,y,z are valid. The w values are just 0's
             float4 _BoxMaxes[MAX_BOXES]; // The x,y,z are valid. The w values are just 0's
+
+            // Cone Information
+            #define MAX_CONES 10 // The number of light cones actually in use - this does not have to match the maximum number, but it cannot really exceed it
+            int _NumConesActive;
+            float4 _ConeTipsAndHeights[MAX_CONES]; // The x,y,z are the cone tip position. The w is the height of the cone
+            float4 _ConeDirVecsAndBaseRadii[MAX_CONES]; // The x,y,z are the cone direction (from the tip to the base). The w is the radius of the cone's base
 
             v2f vert(appdata v)
             {
@@ -119,7 +126,41 @@ Shader "Custom/ClipShaderCode"
                     }
                 }
 
-                // Return 1 to indicate that the fragment is outside all boxes
+                // Return false to indicate that the fragment is outside all boxes
+                return false;
+            }
+
+            bool CheckAgainstCones(float3 _worldPos)
+            {
+                // Loop through all of the cones and see if the fragment is inside any of them
+                for (int i = 0; i < _NumConesActive && i < MAX_CONES; i++)
+                {
+                    // Extract the information for this cone
+                    float3 coneTip = _ConeTipsAndHeights[i].xyz;
+                    float coneHeight = _ConeTipsAndHeights[i].w;
+                    float3 coneDirVec = _ConeDirVecsAndBaseRadii[i].xyz;
+                    float coneBaseRadius = _ConeDirVecsAndBaseRadii[i].w;
+
+                    // Determine how far along the cone's main axis the point is
+                    float3 pointToTip = _worldPos - coneTip;
+                    float distanceAlongAxis = dot(pointToTip, coneDirVec);
+
+                    // If the point is above the tip of the cone or past the base, it is definitely not inside the cone
+                    if (distanceAlongAxis < 0.0f || distanceAlongAxis > coneHeight)
+                        continue;
+
+                    // Calculate the radius of the cone at the given distance
+                    float coneRadius = (distanceAlongAxis / coneHeight) * coneBaseRadius;
+
+                    // Calculate the straight distance from the point to the axis
+                    float distanceFromAxis = length(pointToTip - (distanceAlongAxis * coneDirVec));
+
+                    // If the straight distance from the cone's axis is within the radius of the cone at that point, then it is inside of it
+                    if (distanceFromAxis <= coneRadius)
+                        return true;
+                }
+
+                // Return false to indicate that the fragment is outside all cones
                 return false;
             }
 
@@ -133,8 +174,11 @@ Shader "Custom/ClipShaderCode"
                 {
                     if (!CheckAgainstBoxes(worldPos))
                     {
-                        // The fragment is outside of ALL volumes and so it should be clipped
-                        clip(-1);
+                        if (!CheckAgainstCones(worldPos))
+                        {
+                            // The fragment is outside of ALL volumes and so it should be clipped
+                            clip(-1);
+                        }
                     }
                 }
                 
