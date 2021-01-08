@@ -1,0 +1,78 @@
+title: OldmanTask1_1
+tags: 
+colorID: 0
+position: 200,205
+---
+old_man: Hello there. You must be the new lighthouse keeper.
+[[ continue... |OldmanTask1_2]]
+===
+title: OldmanTask1_2
+tags: 
+colorID: 0
+position: 199,470
+---
+old_man: The job is simple for how much you get paid. just make sure the light stays on, and keep the radio close.
+[[ continue... |OldmanTask1_3]]
+===
+title: OldmanTask1_3
+tags: 
+colorID: 8
+position: 201,735
+---
+old_man: The lighthouse is just up the road. Shoulld not be hard to find.
+[[ continue...|OldmanTask1_4]]
+===
+title: OldmanTask2_1
+tags: 
+colorID: 0
+position: 490,201
+---
+[[ The door is locked... |OldmanTask2_2]]
+===
+title: OldmanTask2_2
+tags: 
+colorID: 0
+position: 485,467
+---
+old_man: Locked you say?
+[[ continue... |OldmanTask2_3]]
+===
+title: OldmanTask1_4
+tags: 
+colorID: 7
+position: 200,998
+---
+old_man: Though... It's getting pretty dark. Take this flashlight.
+===
+title: OldmanTask2_3
+tags: 
+colorID: 0
+position: 479,730
+---
+old_man: Oh! Right, right. Here are all the keys. I don't remember which one is the front door anymore, just try them all...
+[[ Which key did you lock the door with? |OldmanTask2_4_Questioning]]
+[[ Any hints at all on which key it might be?|OldmanTask2_4_Asking]]
+===
+title: OldmanTask2_4_Questioning
+tags: 
+colorID: 0
+position: 477,995
+---
+old_man: I don't usually lock doors. There isn't many people trying to break into a lighthouse you know.
+[[ continue... |OldmanTask2_4_Questioning_2]]
+===
+title: OldmanTask2_4_Asking
+tags: 
+colorID: 0
+position: 768,991
+---
+old_man: I am sorry, son. This is the first time in many years that I have locked that door... 
+[[ continue... |OldmanTask2_4_Questioning_2]]
+===
+title: OldmanTask2_4_Questioning_2
+tags: 
+colorID: 0
+position: 487,1271
+---
+old_man: Any ways... I don't remember... There is only three keys, just try them all.
+===
