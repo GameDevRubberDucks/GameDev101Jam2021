@@ -56,13 +56,15 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Studio Assets\Shaders\CodeTest.cs" />
+    <Compile Include="Assets\Studio Assets\Scripts\Light_VolumeController.cs" />
+    <Compile Include="Assets\Studio Assets\Scripts\Light_SphereVolume.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Studio Assets\Prefabs\PLACEHOLDER.txt" />
      <None Include="Assets\Studio Assets\Shaders\DisableZWrite.shader" />
      <None Include="Assets\Studio Assets\Models\PLACEHOLDER.txt" />
      <None Include="Assets\Studio Assets\Materials\PLACEHOLDER.txt" />
+     <None Include="Assets\Studio Assets\Shaders\ClipShaderCode.shader" />
      <None Include="Assets\Studio Assets\Sprites\PLACEHOLDER.txt" />
      <None Include="Assets\Studio Assets\Scripts\PLACEHOLDER.txt" />
      <None Include="Assets\Studio Assets\Shaders\PLACEHOLDER.txt" />

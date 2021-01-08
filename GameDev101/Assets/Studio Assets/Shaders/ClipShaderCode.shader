@@ -6,7 +6,7 @@ Shader "Custom/ClipShaderCode"
     {
         _MainTex("Texture", 2D) = "white" {}
         _Color("Colour", Color) = (1.0, 1.0, 1.0, 1.0)
-        _NumSpheresActive("Num Active Spheres", Int) = 3
+        [HideInInspector] _NumSpheresActive("Num Active Spheres", Int) = 3
     }
     
     SubShader
@@ -41,9 +41,9 @@ Shader "Custom/ClipShaderCode"
             float4 _Color;
             
             // Sphere information
-            #define MAX_SPHERES 3
+            #define MAX_SPHERES 10
             int _NumSpheresActive; // The number of light spheres actually in use - this does not have to match the maximum number, but it cannot really exceed it
-            float3 _SphereCenters[MAX_SPHERES];
+            float4 _SphereCenters[MAX_SPHERES]; // The x,y,z are valid. The w values are just 0's
             float _SphereRadii[MAX_SPHERES];
 
             v2f vert(appdata v)
@@ -59,17 +59,23 @@ Shader "Custom/ClipShaderCode"
 
             int CheckAgainstSpheres(float3 _worldPos)
             {
+                // The result will either be a -1 or 1 in the end
+                // -1 means that the fragment is within a sphere and should be rendered, 1 means it is outside
+                // Need to start with this high number so the min() function works correctly
                 int sphereResult = 1000000;
 
+                // Loop through all of the spheres and see if the fragment is within one or more of the spheres
                 for (int i = 0; i < _NumSpheresActive && i < MAX_SPHERES; i++)
                 {
-                    float3 vecSphereCenterToPoint = _SphereCenters[i] - _worldPos;
-
+                    // Calculate the distance from the fragment to the sphere
+                    float3 vecSphereCenterToPoint = _SphereCenters[i].xyz - _worldPos;
                     float distance = length(vecSphereCenterToPoint);
                     distance -= _SphereRadii[i];
 
+                    // If the distance is negative, the fragment is INSIDE the sphere, positive means OUTSIDE
                     int distanceSign = sign(distance);
 
+                    // Use min to ensure that if it is in at least one sphere, the result is -1
                     sphereResult = min(distanceSign, sphereResult);
                 }
 
@@ -78,18 +84,11 @@ Shader "Custom/ClipShaderCode"
 
             fixed4 frag(v2f vInfo) : SV_Target
             {
-                // MANUALLY HARD CODE THE FIRST SPHERES
-                _SphereCenters[0] = float3(5.0f, 0.0f, 0.0f);
-                _SphereRadii[0] = 5.0f;
-
-                _SphereCenters[1] = float3(-5.0f, 0.0f, 0.0f);
-                _SphereRadii[1] = 5.0f;
-
-                _SphereCenters[2] = float3(0.0f, 5.0f, 0.0f);
-                _SphereRadii[2] = 2.0f;
-
+                // Check to see if the fragment falls into any of the spheres
+                // If it does, this value is -1 and should be rendered
                 int sphereResult = CheckAgainstSpheres(vInfo.worldSpacePosition.xyz);
 
+                // Clip the fragment if it falls outside of any of the volumes
                 clip(-sphereResult);
 
                 // sample the texture
