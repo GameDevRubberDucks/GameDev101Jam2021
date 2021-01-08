@@ -12,12 +12,14 @@ public class Light_VolumeController : MonoBehaviour
     //--- Private Variables ---//
     private List<Light_SphereVolume> m_sphereVolumes;
     private List<Light_BoxVolume> m_boxVolumes;
+    private List<Light_ConeVolume> m_coneVolumes;
 
 
 
     //--- Shader Constants (MUST MATCH SHADERS) ---//
     private const int MAX_SPHERE_VOLUMES = 10;
     private const int MAX_BOX_VOLUMES = 10;
+    private const int MAX_CONE_VOLUMES = 10;
 
 
 
@@ -27,6 +29,7 @@ public class Light_VolumeController : MonoBehaviour
         // Init the private variables
         m_sphereVolumes = new List<Light_SphereVolume>();
         m_boxVolumes = new List<Light_BoxVolume>();
+        m_coneVolumes = new List<Light_ConeVolume>();
     }
 
     private void Update()
@@ -64,6 +67,19 @@ public class Light_VolumeController : MonoBehaviour
         }
     }
 
+    public void AddConeVolume(Light_ConeVolume _volume)
+    {
+        // Add the volume to the list if it isn't already in it
+        if (!m_coneVolumes.Contains(_volume))
+        {
+            // If the number of volumes has reached the max, we can't add to the list and so we should output a warning
+            if (m_coneVolumes.Count >= MAX_CONE_VOLUMES)
+                Debug.LogWarning("Max cone volume count already reached. Ignoring call to add another!");
+            else
+                m_coneVolumes.Add(_volume);
+        }
+    }
+
     public void RemoveSphereVolume(Light_SphereVolume _volume)
     {
         // Take the volume out of the list
@@ -76,11 +92,18 @@ public class Light_VolumeController : MonoBehaviour
         m_boxVolumes.Remove(_volume);
     }
 
+    public void RemoveConeVolume(Light_ConeVolume _volume)
+    {
+        // Take the volume out of the list
+        m_coneVolumes.Remove(_volume);
+    }
+
     public void UpdateShaderInfo()
     {
         // Update the information for each of the volume types
         UpdateSphereInfo();
         UpdateBoxInfo();
+        UpdateConeInfo();
     }
 
     public void UpdateSphereInfo()
@@ -103,6 +126,11 @@ public class Light_VolumeController : MonoBehaviour
         m_clippingMat.SetInt("_NumBoxesActive", m_boxVolumes.Count);
         m_clippingMat.SetVectorArray("_BoxMins", boxMins);
         m_clippingMat.SetVectorArray("_BoxMaxes", boxMaxes);
+    }
+
+    public void UpdateConeInfo()
+    {
+        // TODO
     }
 
 

@@ -42,6 +42,17 @@ public class Light_SphereVolume : MonoBehaviour
             UpdateSphereData();
     }
 
+    private void OnDrawGizmosSelected()
+    {
+        // Draw the center point of the sphere  
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(this.Center, 0.05f);
+
+        // Draw the bounding area of the sphere
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(this.Center, this.Radius);
+    }
+
 
 
     //--- Methods ---//

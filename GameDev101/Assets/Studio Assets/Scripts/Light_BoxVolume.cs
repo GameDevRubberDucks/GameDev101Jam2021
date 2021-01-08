@@ -43,13 +43,25 @@ public class Light_BoxVolume : MonoBehaviour
             UpdateBoxData();
     }
 
+    private void OnDrawGizmosSelected()
+    {
+        // Draw the min point of the box
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(this.Min, 0.05f);
+
+        // Draw the max point of the box
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(this.Max, 0.05f);
+    }
+
 
 
     //--- Methods ---//
     public void UpdateBoxData()
     {
-        // Update the data to match the transform of the sphere
+        // Update the data to match the transform of the box
         // NOTE: This assumes that the scale is uniform
+        // NOTE: This also only works with axis aligned boxes!
         this.Min = this.transform.position - (0.5f * this.transform.lossyScale);
         this.Max = this.transform.position + (0.5f * this.transform.lossyScale);
     }
