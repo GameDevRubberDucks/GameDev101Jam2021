@@ -1,45 +1,7 @@
 #ifndef MYHLSLINCLUDE_INCLUDED
 #define MYHLSLINCLUDE_INCLUDED
 
-void MyFunction_float(float3 A, float3 B, out float3 Out)
-{
-	Out = A + B;
-}
-
-void CheckAgainstSpheres_float(Texture2DArray sphereData, SamplerState samplerState, int numActiveSpheres, float3 worldPos, out bool isInSphere)
-{
-	float4 colour = sphereData.Sample(samplerState, float3(0, 0, 0));
-
-	isInSphere = (worldPos.x >= 0.0f && numActiveSpheres >= 1);
-}
-
-void SampleTexture_float(Texture2D img, float4 uv, SamplerState ss, out float4 colour)
-{
-	colour = img.Sample(ss, uv.xy);
-}
-
-void SampleTextureArray_float(Texture2DArray imgArr, float4 uv, SamplerState ss, int index, out float4 colour)
-{
-	colour = imgArr.Sample(ss, (uv.x, uv.y, index));
-}
-
-void SampleDynamicTexture_float(Texture2D img, float4 uv, SamplerState ss, out float4 colour)
-{
-	float4 data = img.Sample(ss, uv.xy);
-	
-	colour = float4(0.0f, 0.0f, 0.0f, 1.0f);
-
-	if (data.r >= 20.0f)
-		colour.r = 1.0f;
-
-	if (data.g >= 20.0f)
-		colour.g = 1.0f;
-
-	if (data.b >= 20.0f)
-		colour.b = 1.0f;
-}
-
-void DynamicTextureSphereCheck_float(Texture2D sphereData, SamplerState ss, int activeSphereCount, float3 worldPos, out float insideSphere)
+void CheckAgainstSpheres_float(Texture2D sphereData, SamplerState ss, int activeSphereCount, float3 worldPos, out bool insideVolume)
 {
 	// Calculate the texel size so we know how far to move for each sphere
 	float2 texelSize = (1.0f, 1.0f / activeSphereCount);
@@ -69,22 +31,22 @@ void DynamicTextureSphereCheck_float(Texture2D sphereData, SamplerState ss, int 
 		if (distance <= 0.0f)
 		{
 			// Set the output parameter and return out
-			insideSphere = 1.0f;
+			insideVolume = true;
 			return;
 		}
 	}
 
 	// If we reached this point, this fragment is not inside any of the spheres and so return false
-	insideSphere = 0.0f;
+	insideVolume = false;
 }
 
-void CheckAgainstBoxes_float(float otherVolumeCarryOver, Texture2D boxData, SamplerState ss, int activeBoxCount, float3 worldPos, out float insideBox)
+void CheckAgainstBoxes_float(bool otherVolumeCarryOver, Texture2D boxData, SamplerState ss, int activeBoxCount, float3 worldPos, out bool insideVolume)
 {
 	// If it was inside of a previous volume, just back out immediately
 	// This way, we can just avoid doing any extra calculations
-	if (otherVolumeCarryOver == 1.0f)
+	if (otherVolumeCarryOver)
 	{
-		insideBox = 1.0f;
+		insideVolume = true;
 		return;
 	}
 
@@ -111,7 +73,7 @@ void CheckAgainstBoxes_float(float otherVolumeCarryOver, Texture2D boxData, Samp
 			{
 				if (worldPos.z >= minPoint.z && worldPos.z <= maxPoint.z)
 				{
-					insideBox = 1.0f;
+					insideVolume = true;
 					return;
 				}
 			}
@@ -119,16 +81,16 @@ void CheckAgainstBoxes_float(float otherVolumeCarryOver, Texture2D boxData, Samp
 	}
 
 	// The fragment is outside all of the boxes
-	insideBox = 0.0f;
+	insideVolume = false;
 }
 
-void CheckAgainstCones_float(float otherVolumeCarryOver, Texture2D coneData, SamplerState ss, int activeConeCount, float3 worldPos, out float insideCone)
+void CheckAgainstCones_float(bool otherVolumeCarryOver, Texture2D coneData, SamplerState ss, int activeConeCount, float3 worldPos, out bool insideVolume)
 {
 	// If it was inside of a previous volume, just back out immediately
 	// This way, we can just avoid doing any extra calculations
-	if (otherVolumeCarryOver == 1.0f)
+	if (otherVolumeCarryOver)
 	{
-		insideCone = 1.0f;
+		insideVolume = true;
 		return;
 	}
 
@@ -171,13 +133,13 @@ void CheckAgainstCones_float(float otherVolumeCarryOver, Texture2D coneData, Sam
 		// If the straight distance from the cone's axis is within the radius of the cone at that point, then it is inside of it
 		if (distanceFromAxis <= coneRadius)
 		{
-			insideCone = 1.0f;
+			insideVolume = true;
 			return;
 		}
 	}
 
 	// If we reached this point, the fragment is not inside any of the cones
-	insideCone = 0.0f;
+	insideVolume = false;
 }
 
 #endif
