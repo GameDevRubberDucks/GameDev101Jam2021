@@ -8,7 +8,7 @@ ScriptedImporter:
   assetBundleName: 
   assetBundleVariant: 
   script: {fileID: 11500000, guid: 94073015eacc34c1d8fc6786e43d60ca, type: 3}
-  baseLanguageID: en-CA
+  baseLanguageID: 
   stringIDs:
   - OldmanTasks-OldmanTask1_1-0
   - OldmanTasks-OldmanTask1_1-1
@@ -17,19 +17,20 @@ ScriptedImporter:
   - OldmanTasks-OldmanTask1_3-4
   - OldmanTasks-OldmanTask1_3-5
   - OldmanTasks-OldmanTask2_1-6
-  - OldmanTasks-OldmanTask2_2-7
+  - OldmanTasks-OldmanTask2_1-7
   - OldmanTasks-OldmanTask2_2-8
-  - OldmanTasks-OldmanTask1_4-9
-  - OldmanTasks-OldmanTask2_3-10
+  - OldmanTasks-OldmanTask2_2-9
+  - OldmanTasks-OldmanTask1_4-10
   - OldmanTasks-OldmanTask2_3-11
   - OldmanTasks-OldmanTask2_3-12
-  - OldmanTasks-OldmanTask2_4_Questioning-13
+  - OldmanTasks-OldmanTask2_3-13
   - OldmanTasks-OldmanTask2_4_Questioning-14
-  - OldmanTasks-OldmanTask2_4_Asking-15
+  - OldmanTasks-OldmanTask2_4_Questioning-15
   - OldmanTasks-OldmanTask2_4_Asking-16
-  - OldmanTasks-OldmanTask2_4_Questioning_2-17
+  - OldmanTasks-OldmanTask2_4_Asking-17
+  - OldmanTasks-OldmanTask2_4_Questioning_2-18
   compilationStatus: 1
   isSuccesfullyCompiled: 1
   compilationErrorMessage: 
-  baseLanguage: {fileID: 7128917941130120860, guid: 280cbc26f28a868429770a2d9dcf4c4c, type: 3}
+  baseLanguage: {instanceID: 0}
   localizations: []
