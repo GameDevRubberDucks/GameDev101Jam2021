@@ -13,13 +13,9 @@ public class Light_VolumeController : MonoBehaviour
     private List<Light_SphereVolume> m_sphereVolumes;
     private List<Light_BoxVolume> m_boxVolumes;
     private List<Light_ConeVolume> m_coneVolumes;
-
-
-
-    //--- Shader Constants (MUST MATCH SHADERS) ---//
-    private const int MAX_SPHERE_VOLUMES = 10;
-    private const int MAX_BOX_VOLUMES = 10;
-    private const int MAX_CONE_VOLUMES = 10;
+    private Texture2D m_sphereTex;
+    private Texture2D m_boxTex;
+    private Texture2D m_coneTex;
 
 
 
@@ -30,6 +26,11 @@ public class Light_VolumeController : MonoBehaviour
         m_sphereVolumes = new List<Light_SphereVolume>();
         m_boxVolumes = new List<Light_BoxVolume>();
         m_coneVolumes = new List<Light_ConeVolume>();
+
+        // Create the necessary textures
+        GenerateSphereTexture();
+        GenerateBoxTexture();
+        GenerateConeTexture();
     }
 
     private void Update()
@@ -41,16 +42,41 @@ public class Light_VolumeController : MonoBehaviour
 
 
     //--- Methods ---//
+    public void GenerateSphereTexture()
+    {
+        // Create the sphere texture based on the number of spheres in the list (1 x sphereCount)
+        m_sphereTex = new Texture2D(1, m_sphereVolumes.Count, TextureFormat.RGBAFloat, false);
+        m_sphereTex.filterMode = FilterMode.Point;
+        m_sphereTex.wrapMode = TextureWrapMode.Clamp;
+        m_clippingMat.SetTexture("_SphereData", m_sphereTex);
+    }
+
+    public void GenerateBoxTexture()
+    {
+        // Create the box texture based on the number of boxes in the list (2 x boxCount)
+        m_boxTex = new Texture2D(2, m_boxVolumes.Count, TextureFormat.RGBAFloat, false);
+        m_boxTex.filterMode = FilterMode.Point;
+        m_boxTex.wrapMode = TextureWrapMode.Clamp;
+        m_clippingMat.SetTexture("_BoxData", m_boxTex);
+    }
+
+    public void GenerateConeTexture()
+    {
+        // Create the box texture based on the number of cones in the list (2 x boxCount)
+        m_coneTex = new Texture2D(2, m_coneVolumes.Count, TextureFormat.RGBAFloat, false);
+        m_coneTex.filterMode = FilterMode.Point;
+        m_coneTex.wrapMode = TextureWrapMode.Clamp;
+        m_clippingMat.SetTexture("_ConeData", m_coneTex);
+    }
+
     public void AddSphereVolume(Light_SphereVolume _volume) 
     { 
         // Add the volume to the list if it isn't already in it
         if (!m_sphereVolumes.Contains(_volume))
         {
-            // If the number of volumes has reached the max, we can't add to the list and so we should output a warning
-            if (m_sphereVolumes.Count >= MAX_SPHERE_VOLUMES)
-                Debug.LogWarning("Max sphere volume count already reached. Ignoring call to add another!");
-            else
-                m_sphereVolumes.Add(_volume); 
+            // Add the volume and regenerate the texture to match the new count
+            m_sphereVolumes.Add(_volume);
+            GenerateSphereTexture();
         }
     }
 
@@ -59,11 +85,9 @@ public class Light_VolumeController : MonoBehaviour
         // Add the volume to the list if it isn't already in it
         if (!m_boxVolumes.Contains(_volume))
         {
-            // If the number of volumes has reached the max, we can't add to the list and so we should output a warning
-            if (m_boxVolumes.Count >= MAX_BOX_VOLUMES)
-                Debug.LogWarning("Max box volume count already reached. Ignoring call to add another!");
-            else
-                m_boxVolumes.Add(_volume);
+            // Add the volume and regenerate the texture to match the new count
+            m_boxVolumes.Add(_volume);
+            GenerateBoxTexture();
         }
     }
 
@@ -72,30 +96,31 @@ public class Light_VolumeController : MonoBehaviour
         // Add the volume to the list if it isn't already in it
         if (!m_coneVolumes.Contains(_volume))
         {
-            // If the number of volumes has reached the max, we can't add to the list and so we should output a warning
-            if (m_coneVolumes.Count >= MAX_CONE_VOLUMES)
-                Debug.LogWarning("Max cone volume count already reached. Ignoring call to add another!");
-            else
-                m_coneVolumes.Add(_volume);
+            // Add the volume and regenerate the texture to match the new count
+            m_coneVolumes.Add(_volume);
+            GenerateConeTexture();
         }
     }
 
     public void RemoveSphereVolume(Light_SphereVolume _volume)
     {
-        // Take the volume out of the list
+        // Take the volume out of the list and regenerate the texture to match the new count
         m_sphereVolumes.Remove(_volume);
+        GenerateSphereTexture();
     }
 
     public void RemoveBoxVolume(Light_BoxVolume _volume)
     {
-        // Take the volume out of the list
+        // Take the volume out of the list and regenerate the texture to match the new count
         m_boxVolumes.Remove(_volume);
+        GenerateBoxTexture();
     }
 
     public void RemoveConeVolume(Light_ConeVolume _volume)
     {
-        // Take the volume out of the list
+        // Take the volume out of the list and regenerate the texture to match the new count
         m_coneVolumes.Remove(_volume);
+        GenerateConeTexture();
     }
 
     public void UpdateShaderInfo()
@@ -108,86 +133,64 @@ public class Light_VolumeController : MonoBehaviour
 
     public void UpdateSphereInfo()
     {
-        // Flatten the sphere data into arrays
-        FillSphereInformation(out var spherePositions, out var sphereRadii);
-
-        // Pass the information to the shader
+        // Update the sphere count in the shader
         m_clippingMat.SetInt("_NumSpheresActive", m_sphereVolumes.Count);
-        m_clippingMat.SetVectorArray("_SphereCenters", spherePositions);
-        m_clippingMat.SetFloatArray("_SphereRadii", sphereRadii);
+
+        // Pack all of the sphere information into the texture
+        for (int i = 0; i < m_sphereVolumes.Count; i++)
+        {
+            Vector3 spherePos = m_sphereVolumes[i].Center;
+            float sphereRadius = m_sphereVolumes[i].Radius;
+            Color sphereDataPacked = new Color(spherePos.x, spherePos.y, spherePos.z, sphereRadius);
+
+            m_sphereTex.SetPixel(0, i, sphereDataPacked);
+        }
+
+        // Apply the changes to the texture
+        m_sphereTex.Apply();
     }
 
     public void UpdateBoxInfo()
     {
-        // Flatten the box data into arrays
-        FillBoxInformation(out var boxMins, out var boxMaxes);
-
-        // Pass the information to the shader
+        // Update the box count in the shader
         m_clippingMat.SetInt("_NumBoxesActive", m_boxVolumes.Count);
-        m_clippingMat.SetVectorArray("_BoxMins", boxMins);
-        m_clippingMat.SetVectorArray("_BoxMaxes", boxMaxes);
+
+        // Pack all of the box information into the texture
+        for (int i = 0; i < m_boxVolumes.Count; i++)
+        {
+            Vector3 minPoint = m_boxVolumes[i].Min;
+            Color minColor = new Color(minPoint.x, minPoint.y, minPoint.z, 0.0f);
+            m_boxTex.SetPixel(0, i, minColor);
+
+            Vector3 maxPoint = m_boxVolumes[i].Max;
+            Color maxColor = new Color(maxPoint.x, maxPoint.y, maxPoint.z, 0.0f);
+            m_boxTex.SetPixel(1, i, maxColor);
+        }
+
+        // Apply the changes to the texture
+        m_boxTex.Apply();
     }
 
     public void UpdateConeInfo()
     {
-        // Flatten the code data into arrays
-        FillConeInformation(out var coneTipsAndHeights, out var coneDirsAndRadii);
-
-        // Pass the information to the shader
+        // Update the cone count in the shader
         m_clippingMat.SetInt("_NumConesActive", m_coneVolumes.Count);
-        m_clippingMat.SetVectorArray("_ConeTipsAndHeights", coneTipsAndHeights);
-        m_clippingMat.SetVectorArray("_ConeDirVecsAndBaseRadii", coneDirsAndRadii);
-    }
 
-
-
-    //--- Utility Methods ---//
-    private void FillSphereInformation(out Vector4[] _positions, out float[] _radii)
-    {
-        // Init the arrays
-        _positions = new Vector4[MAX_SPHERE_VOLUMES];
-        _radii = new float[MAX_SPHERE_VOLUMES];
-
-        // Loop through all of the sphere volumes and fill the arrays
-        for (int i = 0; i < m_sphereVolumes.Count; i++)
-        {
-            Vector3 sphereCenter = m_sphereVolumes[i].Center;
-            _positions[i] = new Vector4(sphereCenter.x, sphereCenter.y, sphereCenter.z, 0.0f);
-            _radii[i] = m_sphereVolumes[i].Radius;
-        }
-    }
-
-    private void FillBoxInformation(out Vector4[] _mins, out Vector4[] _maxes)
-    {
-        // Init the arrays
-        _mins = new Vector4[MAX_BOX_VOLUMES];
-        _maxes = new Vector4[MAX_BOX_VOLUMES];
-
-        // Loop through all of the box volumes and fill the arrays
-        for (int i = 0; i < m_boxVolumes.Count; i++)
-        {
-            Vector3 boxMin = m_boxVolumes[i].Min;
-            _mins[i] = new Vector4(boxMin.x, boxMin.y, boxMin.z, 0.0f);
-
-            Vector3 boxMax = m_boxVolumes[i].Max;
-            _maxes[i] = new Vector4(boxMax.x, boxMax.y, boxMax.z, 0.0f);
-        }
-    }
-
-    private void FillConeInformation(out Vector4[] _coneTipsAndHeights, out Vector4[] _coneDirsAndRadii)
-    {
-        // Init the arrays
-        _coneTipsAndHeights = new Vector4[MAX_CONE_VOLUMES];
-        _coneDirsAndRadii = new Vector4[MAX_CONE_VOLUMES];
-
-        // Loop through all of the cone volumes and fill the arrays
+        // Pack all of the cone information into the texture
         for (int i = 0; i < m_coneVolumes.Count; i++)
         {
-            Vector3 coneTip = m_coneVolumes[i].Tip;
-            _coneTipsAndHeights[i] = new Vector4(coneTip.x, coneTip.y, coneTip.z, m_coneVolumes[i].Height);
+            Vector3 tip = m_coneVolumes[i].Tip;
+            float height = m_coneVolumes[i].Height;
+            Color tipAndHeightColour = new Color(tip.x, tip.y, tip.z, height);
+            m_coneTex.SetPixel(0, i, tipAndHeightColour);
 
-            Vector3 coneDirVec = m_coneVolumes[i].DirVec;
-            _coneDirsAndRadii[i] = new Vector4(coneDirVec.x, coneDirVec.y, coneDirVec.z, m_coneVolumes[i].BaseRadius);
+            Vector3 dirVec = m_coneVolumes[i].DirVec;
+            float baseRadius = m_coneVolumes[i].BaseRadius;
+            Color dirVecAndBaseRadiusColour = new Color(dirVec.x, dirVec.y, dirVec.z, baseRadius);
+            m_coneTex.SetPixel(1, i, dirVecAndBaseRadiusColour);
         }
+
+        // Apply the changes to the texture
+        m_coneTex.Apply();
     }
 }

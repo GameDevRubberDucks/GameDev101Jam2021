@@ -609,7 +609,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74b4d8c1f35110e4f8f9dbe6279ca12b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_clippingMat: {fileID: 2100000, guid: e3d2c87f65998d4428483305449f5a77, type: 2}
+  m_clippingMat: {fileID: 2100000, guid: ff8b8c3c7fd22154989cf1323c3bf96d, type: 2}
 --- !u!1 &142290061
 GameObject:
   m_ObjectHideFlags: 0
@@ -1771,7 +1771,6 @@ GameObject:
   - component: {fileID: 549064410}
   - component: {fileID: 549064409}
   - component: {fileID: 549064408}
-  - component: {fileID: 549064407}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -1779,33 +1778,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &549064407
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 549064406}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 796b32fbd7232814c9831b0dd72a2881, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_mat: {fileID: 2100000, guid: ff8b8c3c7fd22154989cf1323c3bf96d, type: 2}
-  m_sphereList:
-  - {fileID: 2114777450}
-  - {fileID: 2065395279}
-  - {fileID: 911585377}
-  - {fileID: 1310843471}
-  m_boxList:
-  - {fileID: 1068450731}
-  - {fileID: 1982196704}
-  - {fileID: 68177290}
-  - {fileID: 1296376073}
-  m_coneList:
-  - {fileID: 9013638941363464080}
-  - {fileID: 57401170}
-  - {fileID: 543564639}
 --- !u!65 &549064408
 BoxCollider:
   m_ObjectHideFlags: 0
