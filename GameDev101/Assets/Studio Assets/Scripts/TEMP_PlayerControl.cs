@@ -1,33 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Yarn.Unity;
 
 public class TEMP_PlayerControl : MonoBehaviour
 {
     public float moveSpeed;
     public ActionDialogue actionTriggerZone;
 
-    private bool dialogueIsRunning;
+    private DialogueRunner dialogueRunner = null;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        dialogueRunner = FindObjectOfType<DialogueRunner>();
     }
 
     // Update is called once per frame
     void Update()
     {
         //if a dialogue is currently running, disable the player controls
-        if (!dialogueIsRunning)
-        {
-            Controls();
-        }
-    }
-    //declare that the dialogue is currently running
-    public void setDialogueIsRunning(bool run)
-    {
-        dialogueIsRunning = run;
+        if (dialogueRunner.IsDialogueRunning)
+            return;
+
+        //if the dialogue is not running, process controls
+         Controls();
+        
     }
 
     void Controls()

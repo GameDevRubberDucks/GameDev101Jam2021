@@ -32,6 +32,12 @@ public class DialogueControls : MonoBehaviour
         for (int i = 0; i < optionSize; i++)
         {
             options[i] = dialogueUI.optionButtons[i].GetComponentInChildren<TMPro.TMP_Text>();
+
+            //if there is more option buttons than options then decrease the number of buttons available to select
+            if(options[currentOption].text == "")
+            {
+                optionSize -= 1;
+            }
         }
     }
 

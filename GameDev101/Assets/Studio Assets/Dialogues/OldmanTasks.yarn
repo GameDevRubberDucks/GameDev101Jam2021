@@ -27,7 +27,8 @@ tags:
 colorID: 0
 position: 490,201
 ---
-...
+old_Man:...
+old_Man:Hey again.
 [[ The door is locked... |OldmanTask2_2]]
 ===
 title: OldmanTask2_2

@@ -19,19 +19,23 @@ public class ActionDialogue : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void OnTriggerStay(Collider other)
     {
-        npc = other.GetComponent<NPC>();
-
-        if (!string.IsNullOrEmpty(npc.talkToNode) && dialogueTrigger) // npc has a conversation node and that dialogue 
+        //check if the object in range is an NPC
+        if (other.tag == "NPC")
         {
-            //disables dialogue trigger so dialogue runner does not starts the dialogue again while running.
-           dialogueTrigger = false;
-           dialogueRunner.StartDialogue(npc.talkToNode);
-            
+            npc = other.GetComponent<NPC>();
+
+            if (!string.IsNullOrEmpty(npc.talkToNode) && dialogueTrigger) // npc has a conversation node and that dialogue 
+            {
+                //disables dialogue trigger so dialogue runner does not starts the dialogue again while running.
+                dialogueTrigger = false;
+                dialogueRunner.StartDialogue(npc.talkToNode);
+
+            }
         }
     }
 }
