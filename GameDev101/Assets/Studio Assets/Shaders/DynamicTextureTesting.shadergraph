@@ -86,6 +86,9 @@
         },
         {
             "m_Id": "88e236d0a866429b8a9a93e760f75e71"
+        },
+        {
+            "m_Id": "576d9b46a2e349139b5e55751072bbf1"
         }
     ],
     "m_GroupDatas": [],
@@ -117,6 +120,20 @@
                     "m_Id": "88e236d0a866429b8a9a93e760f75e71"
                 },
                 "m_SlotId": -724388200
+            }
+        },
+        {
+            "m_OutputSlot": {
+                "m_Node": {
+                    "m_Id": "576d9b46a2e349139b5e55751072bbf1"
+                },
+                "m_SlotId": 0
+            },
+            "m_InputSlot": {
+                "m_Node": {
+                    "m_Id": "88e236d0a866429b8a9a93e760f75e71"
+                },
+                "m_SlotId": -1529828846
             }
         },
         {
@@ -380,6 +397,21 @@
     "m_Hidden": false,
     "m_ShaderOutputName": "Vector1_3714c781d71f4242b3d9284e66721122",
     "m_StageCapability": 2,
+    "m_Value": 0.0,
+    "m_DefaultValue": 0.0,
+    "m_Labels": []
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
+    "m_ObjectId": "18bf116ad0f54ec5a68ab8095f5a27b6",
+    "m_Id": 0,
+    "m_DisplayName": "NumConesActive",
+    "m_SlotType": 1,
+    "m_Hidden": false,
+    "m_ShaderOutputName": "Out",
+    "m_StageCapability": 3,
     "m_Value": 0.0,
     "m_DefaultValue": 0.0,
     "m_Labels": []
@@ -738,6 +770,40 @@
         "z": 0.0
     },
     "m_Labels": []
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.PropertyNode",
+    "m_ObjectId": "576d9b46a2e349139b5e55751072bbf1",
+    "m_Group": {
+        "m_Id": ""
+    },
+    "m_Name": "Property",
+    "m_DrawState": {
+        "m_Expanded": true,
+        "m_Position": {
+            "serializedVersion": "2",
+            "x": -475.0000305175781,
+            "y": 1645.0001220703125,
+            "width": 155.00001525878907,
+            "height": 34.0
+        }
+    },
+    "m_Slots": [
+        {
+            "m_Id": "18bf116ad0f54ec5a68ab8095f5a27b6"
+        }
+    ],
+    "synonyms": [],
+    "m_Precision": 0,
+    "m_PreviewExpanded": true,
+    "m_CustomColors": {
+        "m_SerializableColors": []
+    },
+    "m_Property": {
+        "m_Id": "fcc46a1104f44a13942aa4ff25185e94"
+    }
 }
 
 {
@@ -1106,6 +1172,9 @@
             "m_Id": "e41836ecba0042cca58ec6d0a0f4e686"
         },
         {
+            "m_Id": "fe302b32efe649219ecefa28c385bc50"
+        },
+        {
             "m_Id": "56e7b7a4678e4cfd8df980f2223ae468"
         },
         {
@@ -1126,7 +1195,8 @@
         "2f6ad98a-4960-4041-b736-429d991ef7f8",
         "235fa319-1a11-4caf-86f4-e988ae853fba",
         "25690fd3-eb60-4e77-b3d4-cff54b97cf50",
-        "47bacc45-2757-4fa6-91aa-cbfd37c1a2db"
+        "47bacc45-2757-4fa6-91aa-cbfd37c1a2db",
+        "1e41e15a-5191-4b6e-992a-eba42f901d26"
     ],
     "m_PropertyIds": [
         -724388200,
@@ -1135,7 +1205,8 @@
         604674355,
         -800133364,
         17383924,
-        -1410497736
+        -1410497736,
+        -1529828846
     ]
 }
 
@@ -1650,5 +1721,20 @@
         "x": 0.0,
         "y": 1.0
     }
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
+    "m_ObjectId": "fe302b32efe649219ecefa28c385bc50",
+    "m_Id": -1529828846,
+    "m_DisplayName": "NumConesActive",
+    "m_SlotType": 0,
+    "m_Hidden": false,
+    "m_ShaderOutputName": "Vector1_69ffb18075f74c4998a1565f870a29dd",
+    "m_StageCapability": 2,
+    "m_Value": 0.0,
+    "m_DefaultValue": 0.0,
+    "m_Labels": []
 }
 
