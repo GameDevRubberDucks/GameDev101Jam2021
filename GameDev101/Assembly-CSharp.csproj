@@ -56,10 +56,11 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Studio Assets\Scripts\Light_VolumeController.cs" />
     <Compile Include="Assets\Studio Assets\Scripts\Light_SphereVolume.cs" />
+    <Compile Include="Assets\Studio Assets\Scripts\Light_VolumeController.cs" />
     <Compile Include="Assets\Studio Assets\Scripts\Light_BoxVolume.cs" />
     <Compile Include="Assets\Studio Assets\Scripts\Light_ConeVolume.cs" />
+    <Compile Include="Assets\Studio Assets\Scripts\Water_PointGridGenerator.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Studio Assets\Prefabs\PLACEHOLDER.txt" />
