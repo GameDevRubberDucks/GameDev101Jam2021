@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: GameStandard
-  m_Shader: {fileID: -6465566751694194690, guid: 4bf8d83a0a7462b4b85ecef6f7a0c126, type: 3}
+  m_Name: VoxelWater
+  m_Shader: {fileID: -6465566751694194690, guid: cd7bb2b40fca2f948b0985390019992a, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -19,26 +19,6 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - _BoxData:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _ConeData:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MainTex:
-        m_Texture: {fileID: 10309, guid: 0000000000000000f000000000000000, type: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _SphereData:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _TextureA:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -52,9 +32,10 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _NumBoxesActive: 4
-    - _NumConesActive: 4
-    - _NumSpheresActive: 4
+    - Vector1_0dea7c80ad6a4d9cb91dad43d25e3ea2: 1
+    - Vector1_4c71604e695149c1b630a65d033df809: 0.001
+    - Vector1_ac97c0b9358c49238fdc27f1d0760176: 2
+    - Vector1_afae36027ee644e0b5925d3418269192: 0.5
     m_Colors:
-    - _Color: {r: 0.15534902, g: 1, b: 0, a: 1}
+    - Vector2_4bdb85eabddb4721a11edcc59385d0a0: {r: -5, g: 5, b: 0, a: 0}
   m_BuildTextureStacks: []
