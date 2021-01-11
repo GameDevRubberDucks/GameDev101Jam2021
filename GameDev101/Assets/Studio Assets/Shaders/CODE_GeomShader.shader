@@ -35,35 +35,6 @@ Shader "CODE_GeomShaderTest"
             float4 shadowCoord : TEXCOORD7;
         };
 
-        // Do literally nothing, just output the same data
-        //[maxvertexcount(3)]
-        //void geom(triangle GeomData input[3], inout TriangleStream<GeomData> triStream)
-        //{
-        //    GeomData vert0 = input[0];
-        //    GeomData vert1 = input[1];
-        //    GeomData vert2 = input[2];
-
-        //    //vert0.positionWS += float3(0.0f, 1.0f, 0.0f);
-        //    //vert0.positionCS = mul(UNITY_MATRIX_VP, float4(vert0.positionWS.x, vert0.positionWS.y, vert0.positionWS.z, 1.0f));
-
-        //    //float3 transformTest = TransformWorldToView(vert0.positionWS);
-        //    //float3 transformTestB = TransformObjectToWorld(vert0.positionWS);
-
-        //    ////vert0.positionCS = float4(transformTest.x, transformTest.y, transformTest.z, vert0.positionCS.w);
-
-        //    //float4x4 mat;
-        //    //float4 B;
-        //    //float4 outVar = mul(UNITY_MATRIX_VP, B);
-        //    //float4 test = UNITY_P * float4();
-        //    //vert0.positionWS += float3(1.0f, 0.0f, 0.0f);
-        //    //vert0.positionCS = unity_MatrixVP * float4(vert0.positionWS.x, vert0.positionWS.y, vert0.positionWS.z, 0.0f);
-
-        //    triStream.Append(vert0);
-        //    triStream.Append(vert1);
-        //    triStream.Append(vert2);
-        //    triStream.RestartStrip();
-        //}
-
         float4 WorldToClip(float3 _ws)
         {
             return mul(UNITY_MATRIX_VP, float4(_ws.x, _ws.y, _ws.z, 1.0f));
