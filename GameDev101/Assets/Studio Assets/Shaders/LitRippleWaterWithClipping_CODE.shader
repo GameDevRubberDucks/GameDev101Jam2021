@@ -82,21 +82,22 @@ Shader "LitRippleWaterWithClipping_CODE"
             // Set up the initial data
             GeomData vert = input;
             float size = 1.0f;
+            float height = 5.0f;
 
             // Define the 8 different vertex positions for a cube
             // This is assuming we are looking straight down the z axis
             // (N = negative, P = positive)
             // (First letter = x axis, Second letter = z axis)
             // Ex: topNP -> N (-x), top (+y), P (+z)
-            float3 topNP = float3(-size, size, size);
-            float3 topPP = float3(size, size, size);
-            float3 topPN = float3(size, size, -size);
-            float3 topNN = float3(-size, size, -size);
+            float3 topNP = float3(-size, height, size);
+            float3 topPP = float3(size, height, size);
+            float3 topPN = float3(size, height, -size);
+            float3 topNN = float3(-size, height, -size);
 
-            float3 botNP = float3(-size, -size, size);
-            float3 botPP = float3(size, -size, size);
-            float3 botPN = float3(size, -size, -size);
-            float3 botNN = float3(-size, -size, -size);
+            float3 botNP = float3(-size, -height, size);
+            float3 botPP = float3(size, -height, size);
+            float3 botPN = float3(size, -height, -size);
+            float3 botNN = float3(-size, -height, -size);
 
             // Top
             float3 normTop = float3(0.0f, 1.0f, 0.0f);
