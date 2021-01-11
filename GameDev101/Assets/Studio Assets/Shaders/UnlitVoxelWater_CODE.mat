@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: CODE_UnlitVoxelWater
+  m_Name: UnlitVoxelWater_CODE
   m_Shader: {fileID: 4800000, guid: 711efdf9cc8ab04489e377dc2810afbd, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -39,6 +39,6 @@ Material:
     - Vector1_22f907120f754213901669da8cad66d0: 1.57
     - Vector1_30b1110cb5c34cf9bf44af015bf70c4d: 4
     - Vector1_37475df265fb4b549ed4091781f0150d: 0
-    - Vector1_cd0b2b9536894524b6a7a4f0715a9bde: -0.1
+    - Vector1_cd0b2b9536894524b6a7a4f0715a9bde: -1.73
     m_Colors: []
   m_BuildTextureStacks: []

@@ -63,11 +63,10 @@
     <Compile Include="Assets\Studio Assets\Scripts\Light_ConeVolume.cs" />
   </ItemGroup>
   <ItemGroup>
-     <None Include="Assets\Studio Assets\Shaders\CODE_UnlitVoxelWater.shader" />
+     <None Include="Assets\Studio Assets\Shaders\UnlitVoxelWater_CODE.shader" />
      <None Include="Assets\Studio Assets\Prefabs\PLACEHOLDER.txt" />
      <None Include="Assets\Studio Assets\Shaders\HLSL Functions\VolumeClipFunctions.hlsl" />
-     <None Include="Assets\Studio Assets\Shaders\CODE_UnlitVoxelWaterWIthGeom.shader" />
-     <None Include="Assets\Studio Assets\Shaders\CODE_GeomShader.shader" />
+     <None Include="Assets\Studio Assets\Shaders\GeomShaderTest_CODE.shader" />
     <Reference Include="UnityEngine">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2020.2.1f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>

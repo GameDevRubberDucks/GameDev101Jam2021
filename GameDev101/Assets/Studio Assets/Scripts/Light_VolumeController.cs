@@ -5,7 +5,7 @@ using UnityEngine;
 public class Light_VolumeController : MonoBehaviour
 {
     //--- Public Variables ---//
-    public Material m_clippingMat;
+    public Material[] m_clippingMats;
 
 
 
@@ -48,7 +48,10 @@ public class Light_VolumeController : MonoBehaviour
         m_sphereTex = new Texture2D(1, m_sphereVolumes.Count, TextureFormat.RGBAFloat, false);
         m_sphereTex.filterMode = FilterMode.Point;
         m_sphereTex.wrapMode = TextureWrapMode.Clamp;
-        m_clippingMat.SetTexture("_SphereData", m_sphereTex);
+
+        // Apply the texture to all materials
+        foreach(var clippingMat in m_clippingMats)
+            clippingMat.SetTexture("_SphereData", m_sphereTex);
     }
 
     public void GenerateBoxTexture()
@@ -57,7 +60,10 @@ public class Light_VolumeController : MonoBehaviour
         m_boxTex = new Texture2D(2, m_boxVolumes.Count, TextureFormat.RGBAFloat, false);
         m_boxTex.filterMode = FilterMode.Point;
         m_boxTex.wrapMode = TextureWrapMode.Clamp;
-        m_clippingMat.SetTexture("_BoxData", m_boxTex);
+
+        // Apply the texture to all materials
+        foreach (var clippingMat in m_clippingMats)
+            clippingMat.SetTexture("_BoxData", m_boxTex);
     }
 
     public void GenerateConeTexture()
@@ -66,7 +72,10 @@ public class Light_VolumeController : MonoBehaviour
         m_coneTex = new Texture2D(2, m_coneVolumes.Count, TextureFormat.RGBAFloat, false);
         m_coneTex.filterMode = FilterMode.Point;
         m_coneTex.wrapMode = TextureWrapMode.Clamp;
-        m_clippingMat.SetTexture("_ConeData", m_coneTex);
+
+        // Apply the texture to all materials
+        foreach (var clippingMat in m_clippingMats)
+            clippingMat.SetTexture("_ConeData", m_coneTex);
     }
 
     public void AddSphereVolume(Light_SphereVolume _volume) 
@@ -133,8 +142,9 @@ public class Light_VolumeController : MonoBehaviour
 
     public void UpdateSphereInfo()
     {
-        // Update the sphere count in the shader
-        m_clippingMat.SetInt("_NumSpheresActive", m_sphereVolumes.Count);
+        // Update the sphere count in the shaders
+        foreach (var clippingMat in m_clippingMats)
+            clippingMat.SetInt("_NumSpheresActive", m_sphereVolumes.Count);
 
         // Pack all of the sphere information into the texture
         for (int i = 0; i < m_sphereVolumes.Count; i++)
@@ -152,8 +162,9 @@ public class Light_VolumeController : MonoBehaviour
 
     public void UpdateBoxInfo()
     {
-        // Update the box count in the shader
-        m_clippingMat.SetInt("_NumBoxesActive", m_boxVolumes.Count);
+        // Update the box count in the shaders
+        foreach (var clippingMat in m_clippingMats)
+            clippingMat.SetInt("_NumBoxesActive", m_boxVolumes.Count);
 
         // Pack all of the box information into the texture
         for (int i = 0; i < m_boxVolumes.Count; i++)
@@ -174,7 +185,8 @@ public class Light_VolumeController : MonoBehaviour
     public void UpdateConeInfo()
     {
         // Update the cone count in the shader
-        m_clippingMat.SetInt("_NumConesActive", m_coneVolumes.Count);
+        foreach (var clippingMat in m_clippingMats)
+            clippingMat.SetInt("_NumConesActive", m_coneVolumes.Count);
 
         // Pack all of the cone information into the texture
         for (int i = 0; i < m_coneVolumes.Count; i++)
