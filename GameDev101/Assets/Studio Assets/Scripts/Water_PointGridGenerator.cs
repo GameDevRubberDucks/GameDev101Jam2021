@@ -11,6 +11,7 @@ public class Water_PointGridGenerator : MonoBehaviour
 
     //--- Private Variables ---//
     private MeshFilter m_filter;
+    private float m_initialPosOffset;
 
 
 
@@ -19,6 +20,7 @@ public class Water_PointGridGenerator : MonoBehaviour
     {
         // Init the private variables
         m_filter = GetComponent<MeshFilter>();
+        m_initialPosOffset = (m_gridCount / 2.0f) * m_gridCellSize;
     }
 
     private void Start()
@@ -62,8 +64,9 @@ public class Water_PointGridGenerator : MonoBehaviour
                 int index = (i * _gridCount) + j;
 
                 // Calculate the x and z positions accordingly
-                float xPos = _gridCellSize * i;
-                float zPos = _gridCellSize * j;
+                // Use the offset so that the grid generates around the center of the world
+                float xPos = (_gridCellSize * i) - m_initialPosOffset;
+                float zPos = (_gridCellSize * j) - m_initialPosOffset;
 
                 // Set the data
                 meshPoints[index] = new Vector3(xPos, 0.0f, zPos);

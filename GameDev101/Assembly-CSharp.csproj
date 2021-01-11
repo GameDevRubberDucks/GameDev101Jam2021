@@ -59,10 +59,11 @@
     <Compile Include="Assets\Studio Assets\Scripts\Light_SphereVolume.cs" />
     <Compile Include="Assets\Studio Assets\Scripts\Light_VolumeController.cs" />
     <Compile Include="Assets\Studio Assets\Scripts\Light_BoxVolume.cs" />
-    <Compile Include="Assets\Studio Assets\Scripts\Light_ConeVolume.cs" />
     <Compile Include="Assets\Studio Assets\Scripts\Water_PointGridGenerator.cs" />
+    <Compile Include="Assets\Studio Assets\Scripts\Light_ConeVolume.cs" />
   </ItemGroup>
   <ItemGroup>
+     <None Include="Assets\Studio Assets\Shaders\CODE_UnlitVoxelWater.shader" />
      <None Include="Assets\Studio Assets\Prefabs\PLACEHOLDER.txt" />
      <None Include="Assets\Studio Assets\Shaders\HLSL Functions\VolumeClipFunctions.hlsl" />
      <None Include="Assets\Studio Assets\Shaders\CODE_UnlitVoxelWaterWIthGeom.shader" />
