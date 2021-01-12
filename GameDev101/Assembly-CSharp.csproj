@@ -61,6 +61,9 @@
     <Compile Include="Assets\Studio Assets\Scripts\Light_BoxVolume.cs" />
     <Compile Include="Assets\Studio Assets\Scripts\Water_PointGridGenerator.cs" />
     <Compile Include="Assets\Studio Assets\Scripts\Light_ConeVolume.cs" />
+    <Compile Include="Assets\Studio Assets\Scripts\Player_Camera.cs" />
+    <Compile Include="Assets\Studio Assets\Scripts\Player_Movement.cs" />
+    <Compile Include="Assets\Studio Assets\Scripts\Player_Rotator.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Studio Assets\Shaders\UnlitVoxelWater_CODE.shader" />

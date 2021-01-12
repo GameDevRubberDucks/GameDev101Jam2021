@@ -61,6 +61,6 @@ public class Light_SphereVolume : MonoBehaviour
         // Update the data to match the transform of the sphere
         // NOTE: This assumes that the scale is uniform
         this.Center = this.transform.position;
-        this.Radius = this.transform.localScale.x * 0.5f;
+        this.Radius = this.transform.lossyScale.x * 0.5f;
     }
 }

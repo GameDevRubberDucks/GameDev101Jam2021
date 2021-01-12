@@ -70,6 +70,6 @@ public class Light_ConeVolume : MonoBehaviour
         this.Tip = this.transform.position + (this.transform.up * this.transform.lossyScale.y * 0.5f);
         this.DirVec = -this.transform.up;
         this.Height = this.transform.lossyScale.y;
-        this.BaseRadius = this.transform.localScale.x * 0.5f;
+        this.BaseRadius = this.transform.lossyScale.x * 0.5f;
     }
 }

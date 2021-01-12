@@ -57,7 +57,7 @@ Material:
     - Vector1_a8caf9725a56420599579e2437102053: 1
     - _NumBoxesActive: 4
     - _NumConesActive: 4
-    - _NumSpheresActive: 8
+    - _NumSpheresActive: 9
     m_Colors:
     - Color_a6fef450491347308df457400ae9d80f: {r: 0, g: 0, b: 0, a: 0}
     - _Color: {r: 0.15534902, g: 1, b: 0, a: 1}
