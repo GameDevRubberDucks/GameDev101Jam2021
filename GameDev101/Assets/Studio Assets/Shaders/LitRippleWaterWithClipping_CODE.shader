@@ -56,18 +56,21 @@ Shader "LitRippleWaterWithClipping_CODE"
             vert1.positionWS = _baseVert.positionWS + _offset1;
             vert1.positionCS = WorldToClip(vert1.positionWS);
             vert1.normalWS = _normal;
+            vert1.shadowCoord = TransformWorldToShadowCoord(vert1.positionWS);
 
             // Create the second vertex
             GeomData vert2 = _baseVert;
             vert2.positionWS = _baseVert.positionWS + _offset2;
             vert2.positionCS = WorldToClip(vert2.positionWS);
             vert2.normalWS = _normal;
+            vert2.shadowCoord = TransformWorldToShadowCoord(vert2.positionWS);
 
             // Create the third vertex
             GeomData vert3 = _baseVert;
             vert3.positionWS = _baseVert.positionWS + _offset3;
             vert3.positionCS = WorldToClip(vert3.positionWS);
             vert3.normalWS = _normal;
+            vert3.shadowCoord = TransformWorldToShadowCoord(vert3.positionWS);
 
             // Create and export the triangle
             _triStream.Append(vert1);
