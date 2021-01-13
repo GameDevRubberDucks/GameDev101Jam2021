@@ -56,14 +56,14 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Studio Assets\Scripts\Player_Rotator.cs" />
+    <Compile Include="Assets\Studio Assets\Scripts\Player_Movement.cs" />
     <Compile Include="Assets\Studio Assets\Scripts\Light_SphereVolume.cs" />
     <Compile Include="Assets\Studio Assets\Scripts\Light_VolumeController.cs" />
     <Compile Include="Assets\Studio Assets\Scripts\Light_BoxVolume.cs" />
     <Compile Include="Assets\Studio Assets\Scripts\Water_PointGridGenerator.cs" />
     <Compile Include="Assets\Studio Assets\Scripts\Light_ConeVolume.cs" />
     <Compile Include="Assets\Studio Assets\Scripts\Player_Camera.cs" />
-    <Compile Include="Assets\Studio Assets\Scripts\Player_Movement.cs" />
-    <Compile Include="Assets\Studio Assets\Scripts\Player_Rotator.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Studio Assets\Shaders\UnlitVoxelWater_CODE.shader" />
@@ -71,6 +71,7 @@
      <None Include="Assets\Studio Assets\Shaders\HLSL Functions\VolumeClipFunctions.hlsl" />
      <None Include="Assets\Studio Assets\Shaders\LitRippleWaterWithClipping_CODE.shader" />
      <None Include="Assets\Studio Assets\Shaders\GeomShaderTest_CODE.shader" />
+     <None Include="Assets\Studio Assets\Shaders\DisableZWrite.shader" />
     <Reference Include="UnityEngine">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2020.2.1f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>

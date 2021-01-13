@@ -644,8 +644,124 @@ Transform:
   - {fileID: 82787475}
   - {fileID: 152648996}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &101146924
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 101146925}
+  - component: {fileID: 101146928}
+  - component: {fileID: 101146927}
+  - component: {fileID: 101146926}
+  m_Layer: 0
+  m_Name: Stencil Approach Camera
+  m_TagString: MainCamera
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &101146925
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 101146924}
+  m_LocalRotation: {x: 0.42160785, y: 0.008470596, z: -0.0040443507, w: 0.9067297}
+  m_LocalPosition: {x: 0, y: 17.383556, z: -17.133835}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1051697076}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &101146926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 101146924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
+--- !u!81 &101146927
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 101146924}
+  m_Enabled: 0
+--- !u!20 &101146928
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 101146924}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_FocalLength: 50
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 60
+  orthographic: 0
+  orthographic size: 5
+  m_Depth: -1
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 1
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
 --- !u!1 &102481245
 GameObject:
   m_ObjectHideFlags: 0
@@ -658,7 +774,7 @@ GameObject:
   - component: {fileID: 102481249}
   - component: {fileID: 102481248}
   - component: {fileID: 102481247}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: FlashlightOnly (29)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -911,7 +1027,7 @@ GameObject:
   - component: {fileID: 142290065}
   - component: {fileID: 142290064}
   - component: {fileID: 142290063}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: FlashlightOnly (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1304,7 +1420,7 @@ GameObject:
   - component: {fileID: 324500273}
   - component: {fileID: 324500272}
   - component: {fileID: 324500271}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: FlashlightOnly (35)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1400,7 +1516,7 @@ GameObject:
   - component: {fileID: 342536593}
   - component: {fileID: 342536592}
   - component: {fileID: 342536591}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: FlashlightOnly (28)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1496,7 +1612,7 @@ GameObject:
   - component: {fileID: 349280730}
   - component: {fileID: 349280729}
   - component: {fileID: 349280728}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: FlashlightOnly (12)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1686,7 +1802,7 @@ GameObject:
   - component: {fileID: 385358285}
   - component: {fileID: 385358284}
   - component: {fileID: 385358283}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: FlashlightOnly (27)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1878,7 +1994,7 @@ GameObject:
   - component: {fileID: 425723750}
   - component: {fileID: 425723749}
   - component: {fileID: 425723748}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: 3D Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1974,7 +2090,7 @@ GameObject:
   - component: {fileID: 455886404}
   - component: {fileID: 455886403}
   - component: {fileID: 455886402}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: FlashlightOnly (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2178,7 +2294,7 @@ GameObject:
   - component: {fileID: 470772209}
   - component: {fileID: 470772208}
   - component: {fileID: 470772207}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: FlashlightOnly (38)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2274,7 +2390,7 @@ GameObject:
   - component: {fileID: 473423547}
   - component: {fileID: 473423546}
   - component: {fileID: 473423545}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: FlashlightOnly (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2370,7 +2486,7 @@ GameObject:
   - component: {fileID: 491890629}
   - component: {fileID: 491890628}
   - component: {fileID: 491890627}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: FlashlightOnly (43)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2651,7 +2767,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 8e7023d39dbbdc14990fc378502dd05d, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8e7023d39dbbdc14990fc378502dd05d, type: 3}
       propertyPath: m_LocalScale.x
@@ -2902,7 +3018,7 @@ Transform:
   m_LocalScale: {x: 2.267784, y: 2.9113812, z: 3.261981}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &553625472
 PrefabInstance:
@@ -3044,7 +3160,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &567186374
 MeshRenderer:
@@ -3107,7 +3223,7 @@ GameObject:
   - component: {fileID: 597185456}
   - component: {fileID: 597185455}
   - component: {fileID: 597185454}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: FlashlightOnly (39)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3297,7 +3413,7 @@ GameObject:
   - component: {fileID: 635666499}
   - component: {fileID: 635666498}
   - component: {fileID: 635666497}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: FlashlightOnly (20)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3489,7 +3605,7 @@ GameObject:
   - component: {fileID: 706310893}
   - component: {fileID: 706310892}
   - component: {fileID: 706310891}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: FlashlightOnly (24)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3758,16 +3874,16 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 729148617}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 451.5, y: 1.5, z: -0.00000011920929}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 451.5, y: 1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 947003616}
   - {fileID: 1302722179}
   - {fileID: 1753022715}
   - {fileID: 740378445}
-  m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_Father: {fileID: 1268656677}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &729148622
 MonoBehaviour:
@@ -3910,7 +4026,7 @@ GameObject:
   - component: {fileID: 754505140}
   - component: {fileID: 754505139}
   - component: {fileID: 754505138}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: FlashlightOnly (32)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4102,7 +4218,7 @@ GameObject:
   - component: {fileID: 811131946}
   - component: {fileID: 811131945}
   - component: {fileID: 811131944}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: FlashlightOnly (31)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4198,7 +4314,7 @@ GameObject:
   - component: {fileID: 837304724}
   - component: {fileID: 837304723}
   - component: {fileID: 837304722}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: FlashlightOnly (30)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4388,7 +4504,7 @@ GameObject:
   - component: {fileID: 873159258}
   - component: {fileID: 873159257}
   - component: {fileID: 873159256}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: FlashlightOnly (22)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4592,7 +4708,7 @@ GameObject:
   - component: {fileID: 917691173}
   - component: {fileID: 917691172}
   - component: {fileID: 917691171}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: FlashlightOnly (16)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4688,7 +4804,7 @@ GameObject:
   - component: {fileID: 930912135}
   - component: {fileID: 930912134}
   - component: {fileID: 930912133}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: FlashlightOnly (19)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4914,7 +5030,7 @@ GameObject:
   - component: {fileID: 962843860}
   - component: {fileID: 962843859}
   - component: {fileID: 962843858}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: FlashlightOnly (21)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5010,7 +5126,7 @@ GameObject:
   - component: {fileID: 977260534}
   - component: {fileID: 977260533}
   - component: {fileID: 977260532}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: StencilMask_Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5063,7 +5179,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f50d0965d30b79a4ea3bf59e425c7a04, type: 2}
+  - {fileID: 2100000, guid: 158ef9fca2fe6e84d85648d76280024e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5211,14 +5327,15 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1051697075}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 316, y: 0, z: 107}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 101146925}
   - {fileID: 2090905952}
   - {fileID: 1427295683}
   - {fileID: 1271335607}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1067572075
 GameObject:
@@ -5232,7 +5349,7 @@ GameObject:
   - component: {fileID: 1067572079}
   - component: {fileID: 1067572078}
   - component: {fileID: 1067572077}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: FlashlightOnly (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5544,7 +5661,7 @@ GameObject:
   - component: {fileID: 1172421654}
   - component: {fileID: 1172421653}
   - component: {fileID: 1172421652}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: FlashlightOnly (14)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5828,7 +5945,7 @@ GameObject:
   - component: {fileID: 1206201479}
   - component: {fileID: 1206201478}
   - component: {fileID: 1206201477}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: FlashlightOnly (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6044,11 +6161,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1268656676}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 451.7, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1645984356}
+  - {fileID: 729148621}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1271335606
 GameObject:
@@ -6065,7 +6184,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1271335607
 Transform:
   m_ObjectHideFlags: 0
@@ -6080,7 +6199,7 @@ Transform:
   - {fileID: 1354419784}
   - {fileID: 977260531}
   m_Father: {fileID: 1051697076}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1271637008
 PrefabInstance:
@@ -6091,7 +6210,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 8e7023d39dbbdc14990fc378502dd05d, type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8e7023d39dbbdc14990fc378502dd05d, type: 3}
       propertyPath: m_LocalScale.x
@@ -6477,7 +6596,7 @@ GameObject:
   - component: {fileID: 1299687179}
   - component: {fileID: 1299687178}
   - component: {fileID: 1299687177}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: FlashlightOnly (40)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6776,7 +6895,7 @@ GameObject:
   - component: {fileID: 1318454000}
   - component: {fileID: 1318453999}
   - component: {fileID: 1318453998}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: FlashlightOnly (34)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6872,7 +6991,7 @@ GameObject:
   - component: {fileID: 1354419783}
   - component: {fileID: 1354419782}
   - component: {fileID: 1354419781}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: StencilMask_Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6911,7 +7030,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f50d0965d30b79a4ea3bf59e425c7a04, type: 2}
+  - {fileID: 2100000, guid: 158ef9fca2fe6e84d85648d76280024e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6967,7 +7086,7 @@ GameObject:
   - component: {fileID: 1377954518}
   - component: {fileID: 1377954517}
   - component: {fileID: 1377954516}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: FlashlightOnly (25)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7063,7 +7182,7 @@ GameObject:
   - component: {fileID: 1393010745}
   - component: {fileID: 1393010744}
   - component: {fileID: 1393010743}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: FlashlightOnly (17)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7238,7 +7357,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &1408966643
 GameObject:
@@ -7252,7 +7371,7 @@ GameObject:
   - component: {fileID: 1408966647}
   - component: {fileID: 1408966646}
   - component: {fileID: 1408966645}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: FlashlightOnly (36)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7351,7 +7470,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1427295683
 Transform:
   m_ObjectHideFlags: 0
@@ -7409,7 +7528,7 @@ Transform:
   - {fileID: 1750015307}
   - {fileID: 491890626}
   m_Father: {fileID: 1051697076}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1434903611
 PrefabInstance:
@@ -7514,7 +7633,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 8e7023d39dbbdc14990fc378502dd05d, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8e7023d39dbbdc14990fc378502dd05d, type: 3}
       propertyPath: m_LocalScale.x
@@ -7590,7 +7709,7 @@ GameObject:
   - component: {fileID: 1532929667}
   - component: {fileID: 1532929666}
   - component: {fileID: 1532929665}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: FlashlightOnly (33)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7686,7 +7805,7 @@ GameObject:
   - component: {fileID: 1558743884}
   - component: {fileID: 1558743883}
   - component: {fileID: 1558743882}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: FlashlightOnly (26)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7782,7 +7901,7 @@ GameObject:
   - component: {fileID: 1562540291}
   - component: {fileID: 1562540290}
   - component: {fileID: 1562540289}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: FlashlightOnly (37)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7974,7 +8093,7 @@ GameObject:
   - component: {fileID: 1615520134}
   - component: {fileID: 1615520133}
   - component: {fileID: 1615520132}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: FlashlightOnly (18)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8082,7 +8201,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1645984355}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 451.5, y: 0, z: -0}
+  m_LocalPosition: {x: 451.5, y: 0, z: 0}
   m_LocalScale: {x: 6.3987, y: 6.3987, z: 6.3987}
   m_Children:
   - {fileID: 1292779803}
@@ -8109,8 +8228,8 @@ Transform:
   - {fileID: 871832599}
   - {fileID: 1185976584}
   - {fileID: 1724281083}
-  m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_Father: {fileID: 1268656677}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1648433279
 PrefabInstance:
@@ -8423,7 +8542,7 @@ Transform:
   m_Children:
   - {fileID: 110963788}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1750015306
 GameObject:
@@ -8437,7 +8556,7 @@ GameObject:
   - component: {fileID: 1750015310}
   - component: {fileID: 1750015309}
   - component: {fileID: 1750015308}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: FlashlightOnly (42)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8737,7 +8856,7 @@ GameObject:
   - component: {fileID: 1758224765}
   - component: {fileID: 1758224764}
   - component: {fileID: 1758224763}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: FlashlightOnly (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8833,7 +8952,7 @@ GameObject:
   - component: {fileID: 1760866948}
   - component: {fileID: 1760866947}
   - component: {fileID: 1760866946}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: FlashlightOnly
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9023,7 +9142,7 @@ GameObject:
   - component: {fileID: 1766193834}
   - component: {fileID: 1766193833}
   - component: {fileID: 1766193832}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: FlashlightOnly (13)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9119,7 +9238,7 @@ GameObject:
   - component: {fileID: 1768519101}
   - component: {fileID: 1768519100}
   - component: {fileID: 1768519099}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: FlashlightOnly (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9309,7 +9428,7 @@ GameObject:
   - component: {fileID: 1826393829}
   - component: {fileID: 1826393828}
   - component: {fileID: 1826393827}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: FlashlightOnly (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9405,7 +9524,7 @@ GameObject:
   - component: {fileID: 1831010286}
   - component: {fileID: 1831010285}
   - component: {fileID: 1831010284}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: FlashlightOnly (41)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9592,7 +9711,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 3ab41f1b5c79fae4385958c997f93bf3, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3ab41f1b5c79fae4385958c997f93bf3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9660,122 +9779,6 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 4ddba75609a3c7c46a6ac4db015a0e4b, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ab41f1b5c79fae4385958c997f93bf3, type: 3}
---- !u!1 &1886975482
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1886975485}
-  - component: {fileID: 1886975484}
-  - component: {fileID: 1886975483}
-  - component: {fileID: 1886975486}
-  m_Layer: 0
-  m_Name: Main Camera
-  m_TagString: MainCamera
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!81 &1886975483
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1886975482}
-  m_Enabled: 0
---- !u!20 &1886975484
-Camera:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1886975482}
-  m_Enabled: 1
-  serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
-  m_projectionMatrixMode: 1
-  m_GateFitMode: 2
-  m_FOVAxisMode: 0
-  m_SensorSize: {x: 36, y: 24}
-  m_LensShift: {x: 0, y: 0}
-  m_FocalLength: 50
-  m_NormalizedViewPortRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
-  near clip plane: 0.3
-  far clip plane: 1000
-  field of view: 60
-  orthographic: 0
-  orthographic size: 5
-  m_Depth: -1
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_RenderingPath: -1
-  m_TargetTexture: {fileID: 0}
-  m_TargetDisplay: 0
-  m_TargetEye: 3
-  m_HDR: 1
-  m_AllowMSAA: 1
-  m_AllowDynamicResolution: 0
-  m_ForceIntoRT: 0
-  m_OcclusionCulling: 1
-  m_StereoConvergence: 10
-  m_StereoSeparation: 0.022
---- !u!4 &1886975485
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1886975482}
-  m_LocalRotation: {x: -0.31781426, y: 0.6279134, z: -0.3129289, w: -0.6378043}
-  m_LocalPosition: {x: 279.85333, y: 11.785102, z: -0.33485246}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1886975486
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1886975482}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_RenderShadows: 1
-  m_RequiresDepthTextureOption: 2
-  m_RequiresOpaqueTextureOption: 2
-  m_CameraType: 0
-  m_Cameras: []
-  m_RendererIndex: -1
-  m_VolumeLayerMask:
-    serializedVersion: 2
-    m_Bits: 1
-  m_VolumeTrigger: {fileID: 0}
-  m_RenderPostProcessing: 0
-  m_Antialiasing: 0
-  m_AntialiasingQuality: 2
-  m_StopNaN: 0
-  m_Dithering: 0
-  m_ClearDepth: 1
-  m_AllowXRRendering: 1
-  m_RequiresDepthTexture: 0
-  m_RequiresColorTexture: 0
-  m_Version: 2
 --- !u!1001 &1905449458
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9978,7 +9981,7 @@ GameObject:
   - component: {fileID: 1962244807}
   - component: {fileID: 1962244806}
   - component: {fileID: 1962244805}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: FlashlightOnly (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10071,7 +10074,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 8e7023d39dbbdc14990fc378502dd05d, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8e7023d39dbbdc14990fc378502dd05d, type: 3}
       propertyPath: m_LocalScale.x
@@ -10147,7 +10150,7 @@ GameObject:
   - component: {fileID: 1979606674}
   - component: {fileID: 1979606673}
   - component: {fileID: 1979606672}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: FlashlightOnly (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10351,7 +10354,7 @@ GameObject:
   - component: {fileID: 2035987913}
   - component: {fileID: 2035987912}
   - component: {fileID: 2035987911}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: FlashlightOnly (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10657,7 +10660,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!64 &2082889081
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -10764,7 +10767,7 @@ Transform:
   m_Children:
   - {fileID: 2082889084}
   m_Father: {fileID: 1051697076}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2114777445
 GameObject:
@@ -10886,7 +10889,7 @@ GameObject:
   - component: {fileID: 2131762165}
   - component: {fileID: 2131762164}
   - component: {fileID: 2131762163}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: FlashlightOnly (15)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10982,7 +10985,7 @@ GameObject:
   - component: {fileID: 2140425230}
   - component: {fileID: 2140425229}
   - component: {fileID: 2140425228}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: FlashlightOnly (23)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
