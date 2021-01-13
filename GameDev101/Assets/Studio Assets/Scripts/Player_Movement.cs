@@ -9,10 +9,17 @@ public class Player_Movement : MonoBehaviour
     public KeyCode m_keyBackward;
     public KeyCode m_keyLeft;
     public KeyCode m_keyRight;
+    public bool m_useRigidbody;
 
+    private Rigidbody m_rb;
 
 
     //--- Unity Methods ---//
+    private void Awake()
+    {
+        m_rb = GetComponent<Rigidbody>();
+    }
+
     private void Update()
     {
         // Set up the movement vector 
@@ -39,7 +46,16 @@ public class Player_Movement : MonoBehaviour
         movementTransformed.y = 0.0f;
         movementTransformed.Normalize();
 
-        // Move according to the final vector and speed
-        transform.position += (movementTransformed * m_movementSpeed * Time.deltaTime);
+        if (m_useRigidbody)
+        {
+            // Move using force
+            //m_rb.velocity = (movementTransformed * m_movementSpeed); 
+            m_rb.AddForce(movementTransformed * m_movementSpeed, ForceMode.Impulse);
+        }
+        else
+        {
+            // Move according to the final vector and speed
+            transform.position += (movementTransformed * m_movementSpeed * Time.deltaTime);
+        }
     }
 }
