@@ -28,7 +28,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: f551bc62075bae74eb4a21b67724900e, type: 3}
+        m_Texture: {fileID: 2800000, guid: 092efe86ba599f84aa873258710ca23f, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SphereData:
@@ -56,7 +56,7 @@ Material:
     - Vector1_1a7db9011ae940a88dc8e2710bec3103: 0
     - Vector1_a8caf9725a56420599579e2437102053: 1
     - _NumBoxesActive: 4
-    - _NumConesActive: 5
+    - _NumConesActive: 4
     - _NumSpheresActive: 11
     m_Colors:
     - Color_a6fef450491347308df457400ae9d80f: {r: 0, g: 0, b: 0, a: 0}
