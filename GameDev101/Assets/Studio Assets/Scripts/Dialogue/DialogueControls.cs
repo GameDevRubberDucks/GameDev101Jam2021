@@ -33,7 +33,8 @@ public class DialogueControls : MonoBehaviour
         {
             options[i] = dialogueUI.optionButtons[i].GetComponentInChildren<TMPro.TMP_Text>();
 
-            //if there is more option buttons than options then decrease the number of buttons available to select
+            //if there is more option buttons than dialogue options then decrease the number of buttons available to select
+            //this is for a bug where the dialogueUI only checks if there is more options than ui buttons available, but does not check if there are more button available than options. this leds to a bug where you can select options that does not exist and crash the dialogue.
             if(options[currentOption].text == "")
             {
                 optionSize -= 1;

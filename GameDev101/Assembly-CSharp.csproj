@@ -56,11 +56,12 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Studio Assets\Scripts\Dialogue\DialogueControls.cs" />
-    <Compile Include="Assets\Studio Assets\Scripts\Dialogue\PlayerDialogueController.cs" />
-    <Compile Include="Assets\Studio Assets\Scripts\Dialogue\NPC.cs" />
     <Compile Include="Assets\Studio Assets\Scripts\TEMP_PlayerControl.cs" />
+    <Compile Include="Assets\Studio Assets\Scripts\Dialogue\PlayerDialogueController.cs" />
+    <Compile Include="Assets\Studio Assets\Scripts\Dialogue\DialogueControls.cs" />
     <Compile Include="Assets\Studio Assets\Scripts\Triggers\Interactions\ActionDialogue.cs" />
+    <Compile Include="Assets\Studio Assets\Scripts\Dialogue\NPC.cs" />
+    <Compile Include="Assets\Studio Assets\Scripts\Dialogue\DialogueMover.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

@@ -829,6 +829,7 @@ GameObject:
   m_Component:
   - component: {fileID: 782513792}
   - component: {fileID: 782513793}
+  - component: {fileID: 782513794}
   m_Layer: 0
   m_Name: DialogueBubble
   m_TagString: Untagged
@@ -882,6 +883,18 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &782513794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 782513791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9f44309254bce74cbc31baa2c37f0bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &800503764
 GameObject:
   m_ObjectHideFlags: 0
@@ -954,7 +967,19 @@ MonoBehaviour:
       m_Calls: []
   onLineStart:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 782513794}
+        m_TargetAssemblyTypeName: DialogueMover, Assembly-CSharp
+        m_MethodName: SetDialogueOnTalkingCharacter
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onLineFinishDisplaying:
     m_PersistentCalls:
       m_Calls: []
@@ -1197,7 +1222,7 @@ GameObject:
   - component: {fileID: 1153108421}
   - component: {fileID: 1153108422}
   m_Layer: 0
-  m_Name: NPC_old man
+  m_Name: OldMan
   m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1304,9 +1329,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46274e950f1881d4db3000c16008763b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterName: old_man
-  talkToNode: OldmanTask2_1
-  scriptToLoad: {fileID: 2480198943629176163, guid: 280cbc26f28a868429770a2d9dcf4c4c, type: 3}
+  characterName: oldMan
+  talkToNode: OldManIntroduction
+  scriptToLoad: {fileID: 2480198943629176163, guid: 98eeb92a6328bb74eb66451e9d2bb2f6, type: 3}
 --- !u!1 &1233235276
 GameObject:
   m_ObjectHideFlags: 0

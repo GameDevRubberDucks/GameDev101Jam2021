@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 98eeb92a6328bb74eb66451e9d2bb2f6
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 94073015eacc34c1d8fc6786e43d60ca, type: 3}
+  baseLanguageID: en-CA
+  stringIDs: []
+  compilationStatus: 0
+  isSuccesfullyCompiled: 0
+  compilationErrorMessage: "Error on line 55 at position 1:\nmismatched input '\\n'
+    expecting COMMAND_START\r\n        I don't know what I was expecting...\r\n^"
+  baseLanguage: {instanceID: 0}
+  localizations: []
