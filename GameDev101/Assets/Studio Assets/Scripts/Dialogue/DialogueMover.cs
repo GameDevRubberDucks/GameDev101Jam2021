@@ -3,6 +3,8 @@ using Yarn.Unity;
 
 public class DialogueMover : MonoBehaviour
 {
+    public float dialogueBubbleOnScreenHight;
+
     private DialogueUI dialogueUI;
     private Camera cam;
 
@@ -43,7 +45,7 @@ public class DialogueMover : MonoBehaviour
     private void SetDialoguePosition(GameObject character)
     {
         // Retrieve the position where the top part of the sprite is in the world
-        float characterSpriteHeight = character.transform.position.y + 2.0f;
+        float characterSpriteHeight = character.transform.position.y + dialogueBubbleOnScreenHight;
 
         // Create position with the sprite top location
         Vector3 characterPosition = new Vector3(character.transform.position.x,

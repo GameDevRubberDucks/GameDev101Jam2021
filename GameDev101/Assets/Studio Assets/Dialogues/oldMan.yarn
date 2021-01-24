@@ -1,36 +1,46 @@
 title: OldManIntroduction
 tags: 
 colorID: 0
-position: 70,162
+position: -245,65
 ---
-OldMan: Hello There. I am guessing you are the new lighthouse keeper
-OldMan: The lighthouse is just up ahead.
-OldMan: Follow the road and you will be fine.
-OldMan: Here are not street lights on this island.
-OldMan: You will need this more than me from now on.
-Player: Thanks.
-<< set $hasFlashlight to true>> 
-OldMan: Alright, off you go.
-<< set $oldManIntroduction to true>>
+<< if $oldManIntroduction is true >> 
+	[[ItemGatheringStart]]
+<< else >>
+	OldMan: Hello There. I am guessing you are the new lighthouse keeper
+	OldMan: The lighthouse is just up ahead.
+	OldMan: Follow the road and you will be fine.
+	OldMan: Here are not street lights on this island.
+	OldMan: You will need this more than me from now on.
+	Player: Thanks.
+	<< set $hasFlashlight to true>> 
+	OldMan: Alright, off you go.
+	<< set $oldManIntroduction to true>>
+
+<<endif>>
 ===
 title: ItemGatheringStart
 tags: 
 colorID: 0
-position: 306,160
+position: 31,62
 ---
-OldMan: Hey. You are back.
-...
-OldMan: Locked you say.
-OldMan: Right, right! Forgot to give you the keys.
-OldMan: Here, take these.
-
-//player obtains a ring of keys
-<<Player Take keys>>
-<<set $hasKeyRing to true>> 
-
-OldMan: Oh, one more thing.
-OldMan: Looks like the boat is not working.
-OldMan: There is a shed in the west side of the island.
-OldMan: When you get a chance, please go and grab the tool box from there.
-OldMan: If find any fuel in there, I would need those as well.
+<< if $frontDoorChecked is true && $hasKeyRing is false>> 
+    OldMan: Hey. You are back.
+    Player: Sorry to bother you again,
+    Player: But the door is locked...
+    OldMan: Locked you say.
+    OldMan: Right, right! Forgot to give you the keys.
+    OldMan: Here, take these.
+    
+    //player obtains a ring of keys
+    <<set $hasKeyRing to true>> 
+    
+    OldMan: Oh, one more thing.
+    OldMan: Looks like the boat is not working.
+    OldMan: There is a shed in the west side of the island.
+    OldMan: When you get a chance, please go and grab the tool box from there.
+    OldMan: If find any fuel in there, I would need those as well.
+<< else>> 
+    OldMan: *Checking around the boat*
+    OldMan: Why won't it turn on...
+<< endif>>
 ===

@@ -1,0 +1,29 @@
+title: LightHouseFrontDoor
+tags: 
+colorID: 0
+position: -245,308
+---
+<< if $frontDoorChecked is false>> 
+    Player: Alright...
+    Player: I guess this is my life from now on.
+    Player: Finally the peaceful life.
+    Player: *Turn the door nob*
+    LightHouseFrontDoor: *Door nob wiggles*
+    LightHouseFrontDoor: *Obviously locked*
+    Player: No...
+    Player: *Tries to open the door harder*
+    Player: No... No...
+    Player: *Door opening Intensified*
+    Player: No No No no no no no
+    Player: ...
+    Player: ...
+    Player: Alright...
+    Player: let's hope the old man is still there...
+    <<set $frontDoorChecked to true>>
+<< elseif $hasLighthouseKey is true>> 
+    LightHouseFrontDoor: opens
+<< else >>
+    Player: Still locked...
+    Player: don't know what I was expecting
+<< endif >>
+===
