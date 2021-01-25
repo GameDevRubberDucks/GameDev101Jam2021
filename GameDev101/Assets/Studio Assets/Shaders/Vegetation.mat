@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Vegetation
+  m_Shader: {fileID: -6465566751694194690, guid: 57435ec6af829d64793bef1db7717eb1, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: f551bc62075bae74eb4a21b67724900e, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - Vector1_1: 0.5
+    - Vector1_1a7db9011ae940a88dc8e2710bec3103: 0
+    - Vector1_648c6b5d2d3647a2a29112d6c73f53e7: 3
+    - Vector1_a8caf9725a56420599579e2437102053: 1
+    m_Colors:
+    - Color_a6fef450491347308df457400ae9d80f: {r: 0, g: 0, b: 0, a: 0}
+    - Vector2_1: {r: 0.2, g: 0.5, b: 0, a: 0}
+    - Vector2_81ad97b494ba499db17bfeba4b5c517a: {r: 1, g: 1, b: 0, a: 0}
+    - Vector3_7adbee59cae148ebbcefe2dbdaee3561: {r: 0.01, g: 0.05, b: 0.01, a: 0}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+  m_BuildTextureStacks: []
