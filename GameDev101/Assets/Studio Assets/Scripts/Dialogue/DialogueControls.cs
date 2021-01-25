@@ -35,10 +35,10 @@ public class DialogueControls : MonoBehaviour
 
             //if there is more option buttons than dialogue options then decrease the number of buttons available to select
             //this is for a bug where the dialogueUI only checks if there is more options than ui buttons available, but does not check if there are more button available than options. this leds to a bug where you can select options that does not exist and crash the dialogue.
-            if(options[currentOption].text == "")
-            {
-                //optionSize -= 1;
-            }
+            //if (options[optionSize].text == null)
+            //{
+            //    optionSize -= 1;
+            //}
         }
     }
 
@@ -66,16 +66,20 @@ public class DialogueControls : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.A))
         {
-            currentOption = (currentOption + 1) % optionSize;
+            if (currentOption == 0)
+                currentOption = optionSize - 1;
+            else
+                currentOption -= 1;
+
             dialogue.SetText(options[currentOption].text);
         }
         else if (Input.GetKeyDown(KeyCode.D))
         {
             //Move to the previous option
-            if (currentOption == 0)
-                currentOption = optionSize - 1;
+            if (currentOption == optionSize - 1)
+                currentOption = 0;
             else
-                currentOption = (Mathf.Abs(currentOption - 1) % optionSize);
+                currentOption += 1;
 
             dialogue.SetText(options[currentOption].text);
         }

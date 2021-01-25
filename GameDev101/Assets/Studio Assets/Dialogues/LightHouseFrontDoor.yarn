@@ -28,13 +28,13 @@ position: -245,-27
 
 //trying the different keys
 << elseif $hasKeyRing is true && $triedallKey is false>>
-    -> try first key << if $triedfirstkey is false>> 
+    -> try first key  
         << set $triedfirstkey to true>> 
         [[Wrongkey]] 
-    -> try second key << if $triedsecondkey is false>> 
+    -> try second key 
         << set $triedsecondkey to true>> 
         [[Wrongkey]] 
-    -> try third key << if $triedthirdkey is false>> 
+    -> try third key
         << set $triedthirdkey to true>> 
         [[Wrongkey]] 
 
@@ -51,8 +51,13 @@ position: -125,230
 ---
 LightHouseFrontDoor: *Won't open*
 << if $triedfirstkey is true && $triedsecondkey is true && $triedthirdkey is true>>
+    Player: Well...
+    Player: None of them works...
+    Player: sigh...
+    Player: alright, Back I go.
     << set $triedallKey to true>> 
+    [[LightHouseFrontDoor]]
 << endif >>
     
-[[LightHouseFrontDoor]]
+
 ===
