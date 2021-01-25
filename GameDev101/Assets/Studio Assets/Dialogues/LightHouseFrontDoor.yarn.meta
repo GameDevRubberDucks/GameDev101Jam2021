@@ -1,0 +1,42 @@
+fileFormatVersion: 2
+guid: c210c7a4129e7454585a1cf29ddaebed
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 94073015eacc34c1d8fc6786e43d60ca, type: 3}
+  baseLanguageID: en-CA
+  stringIDs:
+  - oldMan 1-OldManIntroduction-0
+  - oldMan 1-OldManIntroduction-1
+  - oldMan 1-OldManIntroduction-2
+  - oldMan 1-OldManIntroduction-3
+  - oldMan 1-OldManIntroduction-4
+  - oldMan 1-OldManIntroduction-5
+  - oldMan 1-OldManIntroduction-6
+  - oldMan 1-ItemGatheringStart-7
+  - oldMan 1-ItemGatheringStart-8
+  - oldMan 1-ItemGatheringStart-9
+  - oldMan 1-ItemGatheringStart-10
+  - oldMan 1-ItemGatheringStart-11
+  - oldMan 1-ItemGatheringStart-12
+  - oldMan 1-ItemGatheringStart-13
+  - oldMan 1-ItemGatheringStart-14
+  - oldMan 1-ItemGatheringStart-15
+  - oldMan 1-ItemGatheringStart-16
+  - oldMan 1-ItemGatheringStart-17
+  compilationStatus: 1
+  isSuccesfullyCompiled: 1
+  compilationErrorMessage: 'Error on line 18 at position 1:
+
+    mismatched input
+    ''==='' expecting COMMAND_START
+
+    ===
+
+    ^^^'
+  baseLanguage: {fileID: 7128917941130120860, guid: 3497f9e530fc4e740b853b53b474bac3, type: 3}
+  localizations: []

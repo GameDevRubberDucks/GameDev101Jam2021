@@ -1,0 +1,63 @@
+title: LightHouseFrontDoor
+tags: 
+colorID: 0
+position: -245,-27
+---
+//first time trying to open the door
+<< if $frontDoorChecked is false>> 
+    Player: Alright...
+    Player: I guess this is my life from now on.
+    Player: Finally the peaceful life.
+    Player: *Turn the door nob*
+    LightHouseFrontDoor: *Door nob wiggles*
+    LightHouseFrontDoor: *Obviously locked*
+    Player: No...
+    Player: *Tries to open the door harder*
+    Player: No... No...
+    Player: *Door opening Intensified*
+    Player: No No No no no no no
+    Player: ...
+    Player: ...
+    Player: Alright...
+    Player: let's hope the old man is still there...
+    <<set $frontDoorChecked to true>>
+
+//if they player gotten the real key
+<< elseif $hasLighthouseKey is true>> 
+    LightHouseFrontDoor: opens
+
+//trying the different keys
+<< elseif $hasKeyRing is true && $triedallKey is false>>
+    -> try first key  
+        << set $triedfirstkey to true>> 
+        [[Wrongkey]] 
+    -> try second key 
+        << set $triedsecondkey to true>> 
+        [[Wrongkey]] 
+    -> try third key
+        << set $triedthirdkey to true>> 
+        [[Wrongkey]] 
+
+//if the all the keys had been tried
+<< else>> 
+    Player: Still locked...
+    Player: don't know what I was expecting
+<< endif >>
+===
+title: Wrongkey
+tags: 
+colorID: 0
+position: -125,230
+---
+LightHouseFrontDoor: *Won't open*
+<< if $triedfirstkey is true && $triedsecondkey is true && $triedthirdkey is true>>
+    Player: Well...
+    Player: None of them works...
+    Player: sigh...
+    Player: alright, Back I go.
+    << set $triedallKey to true>> 
+    [[LightHouseFrontDoor]]
+<< endif >>
+    
+
+===
