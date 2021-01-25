@@ -37,7 +37,7 @@ public class DialogueControls : MonoBehaviour
             //this is for a bug where the dialogueUI only checks if there is more options than ui buttons available, but does not check if there are more button available than options. this leds to a bug where you can select options that does not exist and crash the dialogue.
             if(options[currentOption].text == "")
             {
-                optionSize -= 1;
+                //optionSize -= 1;
             }
         }
     }
